@@ -4,7 +4,7 @@
     "separator": " 󰑃  "
   },
   "logo": {
-    "source": "Linux",
+    "source": "NixOS",
     "type": "builtin",
     "padding": {
       "top": 6,
