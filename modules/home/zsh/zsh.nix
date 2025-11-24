@@ -6,6 +6,12 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+    oh-my-zsh = { # "ohMyZsh" without Home Manager
+      enable = true;
+      # plugins = [ "git" "thefuck" ];
+      theme = "robbyrussell";
+    };
+
     plugins = [
       {
         # Must be before plugins that wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting
