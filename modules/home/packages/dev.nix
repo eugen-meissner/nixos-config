@@ -8,5 +8,7 @@
 
     python3
     python312Packages.ipython
+
+    dotnetCorePackages.sdk_8_0-bin
   ];
 }
