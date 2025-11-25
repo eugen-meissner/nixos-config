@@ -15,6 +15,7 @@
     ./git.nix                         # version control
     ./gtk.nix                         # gtk theme
     ./hyprland                        # window manager
+    ./impala.nix
     ./nix-search/nix-search.nix       # TUI to search nixpkgs
     ./nvim.nix                        # neovim editor
     ./packages                        # other packages
