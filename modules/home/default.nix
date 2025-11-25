@@ -4,6 +4,7 @@
     ./audacious/audacious.nix         # music player
     ./zen-browser.nix                 # firefox based browser
     ./btop.nix                        # resouces monitor 
+    ./bluetui.nix                     # bluetooth tui
     ./cava.nix                        # audio visualizer
     ./fastfetch/fastfetch.nix         # fetch tool
     ./fzf.nix                         # fuzzy finder
