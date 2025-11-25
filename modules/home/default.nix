@@ -2,6 +2,7 @@
 {
   imports = [
     ./audacious/audacious.nix         # music player
+    ./azure-cli.nix
     ./zen-browser.nix                 # firefox based browser
     ./btop.nix                        # resouces monitor 
     ./bluetui.nix                     # bluetooth tui
