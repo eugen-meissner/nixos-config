@@ -119,7 +119,8 @@ in
       };
       scroll-step = 2;
       on-click = "pamixer -t";
-      on-click-right = "pavucontrol";
+      on-click-right =
+        "hyprctl dispatch exec '[float; center; size 950 650] wiremix'";
     };
     battery = {
       format = "<span foreground='${yellow}'>{icon}</span> {capacity}%";
