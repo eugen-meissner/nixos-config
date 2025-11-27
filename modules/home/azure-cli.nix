@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ teams-for-linux ];
+  home.packages = with pkgs; [ azure-cli ];
 }
