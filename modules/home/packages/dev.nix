@@ -10,14 +10,15 @@ in {
   home.packages = with pkgs; [
     gcc
     gdb
-
     nodePackages_latest.nodejs
-
     python3
     python312Packages.ipython
-
     dotnetCombined
     terraform
   ];
-}
 
+  home.sessionVariables = {
+    DOTNET_ROOT    = "${dotnetCombined}/share/dotnet";
+    DOTNET_ROOT_X64 = "${dotnetCombined}/share/dotnet";
+  };
+}
