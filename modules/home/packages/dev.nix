@@ -14,6 +14,7 @@ in {
     python3
     python312Packages.ipython
     dotnetCombined
+    netcoredbg
     terraform
   ];
 
