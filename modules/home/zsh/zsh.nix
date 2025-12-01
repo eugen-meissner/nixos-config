@@ -114,7 +114,10 @@
       zstyle ':fzf-tab:*' switch-group ',' '.'
     '';
 
-    initContent = ''
+    initExtra = ''
+      if [ -f /etc/nixos/modules/home/zsh/secrets.sh ]; then
+        source /etc/nixos/modules/home/zsh/secrets.sh
+      fi
       DISABLE_AUTO_UPDATE=true
       DISABLE_MAGIC_FUNCTIONS=true
       export "MICRO_TRUECOLOR=1"
