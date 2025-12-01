@@ -10,6 +10,7 @@ in {
   home.packages = with pkgs; [
     gcc
     gdb
+    make
     nodePackages_latest.nodejs
     python3
     python312Packages.ipython
