@@ -6,7 +6,7 @@
     settings = {
       user = {
         name = "Eugen Meissner";
-        email = "meissner.eugen@gmail.com";
+        email = "eugen.meissner@enpal.de";
       };
 
       init.defaultBranch = "main";
@@ -14,6 +14,8 @@
       diff.colorMoved = "default";
       pull.ff = "only";
       color.ui = true;
+
+      credential.helper = "store"; # Store credentials permanently on disk
 
       url = {
         "git@github.com:".insteadOf = [
