@@ -22,7 +22,6 @@
     ./rider.nix
     ./ssh.nix                         # ssh config
     ./superfile/superfile.nix         # terminal file manager
-    ./steam.nix
     ./swaylock.nix                    # lock screen
     ./swaync/swaync.nix               # notification deamon
     ./waybar                          # status bar
