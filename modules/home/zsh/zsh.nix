@@ -114,7 +114,7 @@
       zstyle ':fzf-tab:*' switch-group ',' '.'
     '';
 
-    initExtra = ''
+    initContent = ''
       if [ -f /etc/nixos/modules/home/zsh/secrets.sh ]; then
         source /etc/nixos/modules/home/zsh/secrets.sh
       fi
