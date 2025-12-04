@@ -12,6 +12,7 @@ in {
     gdb
     gnumake
     nodePackages_latest.nodejs
+    yarn
     python3
     python312Packages.ipython
     dotnetCombined
