@@ -11,11 +11,20 @@
 
       init.defaultBranch = "main";
       merge.conflictstyle = "diff3";
+      merge.tool = "nvim";
       diff.colorMoved = "default";
       pull.ff = "only";
       color.ui = true;
 
       credential.helper = "store"; # Store credentials permanently on disk
+
+      mergetool = {
+        nvim = {
+          cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
+        };
+        prompt = false;
+        keepBackup = false;
+      };
 
       url = {
         "git@github.com:".insteadOf = [
