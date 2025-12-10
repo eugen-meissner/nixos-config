@@ -20,6 +20,7 @@
     ./nvim.nix                        # neovim editor
     ./packages                        # other packages
     ./rider.nix
+    ./signal.nix                      # signal messenger
     ./ssh.nix                         # ssh config
     ./superfile/superfile.nix         # terminal file manager
     ./swaylock.nix                    # lock screen
