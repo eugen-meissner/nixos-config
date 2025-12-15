@@ -18,6 +18,7 @@ in {
     dotnetCombined
     netcoredbg
     terraform
+    redisinsight
   ];
 
   home.sessionVariables = {
