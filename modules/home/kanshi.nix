@@ -16,6 +16,10 @@
             criteria = "eDP-1";
             status = "disable";
           }
+          {
+            criteria = "DP-2";
+            status = "disabled";
+          }
         ];
       }
       {
