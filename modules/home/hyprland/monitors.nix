@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
-    settings.monitor = [ ",preferred,auto,auto" ];
+    settings.monitor = [
+      ",preferred,auto,auto"
+      "DP-2,disable"
+    ];
 
     extraConfig = ''
       # hyprlang noerror true
