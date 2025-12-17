@@ -18,7 +18,7 @@
           }
           {
             criteria = "DP-2";
-            status = "disabled";
+            status = "disable";
           }
         ];
       }
