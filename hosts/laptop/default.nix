@@ -9,7 +9,9 @@
     acpi
     brightnessctl
     cpupower-gui
+    ffmpeg
     powertop
+    yt-dlp
   ];
 
   services = {
