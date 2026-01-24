@@ -2,8 +2,6 @@
 {
   imports = [
     ./audacious/audacious.nix         # music player
-    ./android-studio.nix
-    ./azure-cli.nix
     ./zen-browser.nix                 # firefox based browser
     ./btop.nix                        # resouces monitor 
     ./bluetui.nix                     # bluetooth tui
@@ -20,7 +18,6 @@
     ./nix-search/nix-search.nix       # TUI to search nixpkgs
     ./nvim.nix                        # neovim editor
     ./packages                        # other packages
-    ./rider.nix
     ./signal.nix                      # signal messenger
     ./ssh.nix                         # ssh config
     ./superfile/superfile.nix         # terminal file manager
@@ -28,7 +25,6 @@
     ./swaync/swaync.nix               # notification deamon
     ./waybar                          # status bar
     ./waypaper.nix                    # GUI wallpaper picker
-    ./teams-for-linux.nix
     ./vicinae.nix                     # launcher
     ./xdg-mimes.nix                   # xdg config
     ./zsh                             # shell
