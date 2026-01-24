@@ -8,8 +8,8 @@
         profile.outputs = [
           {
             criteria = "DP-1";
-            mode = "5120x2880@60Hz";
-            scale = 1.6;
+            mode = "2560x1440@60Hz";
+            scale = 1.0;
             status = "enable";
           }
           {
