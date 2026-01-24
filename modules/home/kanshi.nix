@@ -9,7 +9,7 @@
           {
             criteria = "DP-1";
             mode = "2560x1440@60Hz";
-            scale = 1.0;
+            scale = 1;
             status = "enable";
           }
           {
