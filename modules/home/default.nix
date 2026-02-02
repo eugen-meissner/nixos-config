@@ -27,6 +27,7 @@
     ./waypaper.nix                    # GUI wallpaper picker
     ./vicinae.nix                     # launcher
     ./xdg-mimes.nix                   # xdg config
+    ./yubikey-manager.nix
     ./zsh                             # shell
   ];
 }
