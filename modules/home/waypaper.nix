@@ -1,6 +1,14 @@
 { pkgs, ... }:
+let
+  restoreWallpaper = pkgs.writeShellScriptBin "restore-wallpaper" (
+    builtins.readFile ./waypaper/restore-wallpaper.sh
+  );
+in
 {
-  home.packages = with pkgs; [ waypaper ];
+  home.packages = with pkgs; [ 
+    waypaper 
+    restoreWallpaper
+  ];
 
   xdg.configFile."waypaper/config.ini".text = ''
     [Settings]
