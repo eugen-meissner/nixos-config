@@ -9,7 +9,6 @@ in
     enable = true;
     package = inputs.vicinae.packages.${system}.default;
 
-    autoStart = true;
     useLayerShell = true;
 
     settings = {
