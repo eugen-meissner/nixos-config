@@ -9,8 +9,6 @@ in
     enable = true;
     package = inputs.vicinae.packages.${system}.default;
 
-    useLayerShell = true;
-
     settings = {
       font = {
         normal = "Maple Mono";
