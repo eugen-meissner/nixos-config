@@ -15,7 +15,8 @@
   ];
 
   services = {
-    power-profiles-daemon.enable = true;
+    power-profiles-daemon.enable = false;
+    tlp.enable = true;
 
     upower = {
       enable = true;
