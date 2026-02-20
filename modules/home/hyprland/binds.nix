@@ -27,6 +27,7 @@
       "$mainMod, X, togglesplit,"
       "$mainMod, T, exec, toggle-oppacity"
       "$mainMod, E, exec, nemo"
+      "$mainMod, D, exec, rofi -show drun"
       "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
       "$mainMod SHIFT, B, exec, toggle-waybar"
       "$mainMod SHIFT, R, exec, hyprctl reload"
