@@ -8,8 +8,6 @@ in
   services.vicinae = {
     enable = true;
     package = inputs.vicinae.packages.${system}.default;
-    # Run as regular window so Hyprland doesn't keep the layer in a bad state after close (toggle works reliably)
-    useLayerShell = false;
 
     settings = {
       font = {
