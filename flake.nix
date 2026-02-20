@@ -22,7 +22,7 @@
 
     superfile.url = "github:yorukot/superfile";
     zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
-    codex.url = "github:openai/codex";
+    codex.url = "github:openai/codex/rust-v0.104.0";
   };
 
   outputs =
