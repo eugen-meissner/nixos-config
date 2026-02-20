@@ -1,6 +1,9 @@
 { ... }:
 {
   wayland.windowManager.hyprland.settings = {
+    # Define at top level so it's emitted before binds (required by Hyprland)
+    "$mainMod" = "SUPER";
+
     input = {
       kb_layout = "us";
       numlock_by_default = true;
@@ -15,7 +18,6 @@
     };
 
     general = {
-      "$mainMod" = "SUPER";
       layout = "dwindle";
       gaps_in = 6;
       gaps_out = 12;
