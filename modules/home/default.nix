@@ -7,6 +7,7 @@
     ./bluetui.nix                     # bluetooth tui
     ./cava.nix                        # audio visualizer
     ./cursor.nix
+    ./codex.nix
     ./dbeaver.nix
     ./fastfetch/fastfetch.nix         # fetch tool
     ./fzf.nix                         # fuzzy finder
