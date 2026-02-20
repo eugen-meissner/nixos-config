@@ -2,26 +2,26 @@
 let
   system = pkgs.stdenv.hostPlatform.system;
   zenPkg = inputs.zen-browser.packages.${system}.beta;
-  # Force XWayland to avoid "IPDL protocol Error: Received an invalid file descriptor" (Firefox/Wayland bug)
-  zenWithXWayland = pkgs.symlinkJoin {
-    name = "zen-beta-xwayland";
-    paths = [
-      zenPkg
-      (pkgs.writeShellScriptBin "zen-beta" ''
-        export MOZ_ENABLE_WAYLAND=0
-        exec "${zenPkg}/bin/zen-beta" "$@"
-      '')
-    ];
-    meta = zenPkg.meta;
-  };
+  # Desktop override dir: same filename(s) as package, Exec set to use XWayland (fixes IPDL error)
+  zenDesktopOverride = pkgs.runCommand "zen-beta-desktop-xwayland" { } ''
+    mkdir -p $out
+    shopt -s nullglob
+    for f in "${zenPkg}"/share/applications/*.desktop; do
+      name=$(basename "$f")
+      sed 's|^Exec=.*|Exec=env MOZ_ENABLE_WAYLAND=0 zen-beta %u|' "$f" > "$out/$name"
+    done
+  '';
 in
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
-  programs.zen-browser = {
-    enable = true;
-    package = zenWithXWayland;
-  };
+  programs.zen-browser.enable = true;
+
+  # Override Zen desktop file so it launches with MOZ_ENABLE_WAYLAND=0 (fixes IPDL invalid file descriptor)
+  home.activation.zenDesktopXwayland = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run mkdir -p "$HOME/.local/share/applications"
+    run cp -f "${zenDesktopOverride}"/* "$HOME/.local/share/applications/"
+  '';
 
   # Migrate Zen config from ~/.zen to ~/.config/zen (required as of 18.18.6b). Runs on switch when ~/.zen exists.
   home.activation.zenBrowserXdgMigration = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
