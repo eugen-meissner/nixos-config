@@ -1,8 +1,27 @@
 { inputs, pkgs, lib, ... }:
+let
+  system = pkgs.stdenv.hostPlatform.system;
+  zenPkg = inputs.zen-browser.packages.${system}.beta;
+  # Force XWayland to avoid "IPDL protocol Error: Received an invalid file descriptor" (Firefox/Wayland bug)
+  zenWithXWayland = pkgs.symlinkJoin {
+    name = "zen-beta-xwayland";
+    paths = [
+      zenPkg
+      (pkgs.writeShellScriptBin "zen-beta" ''
+        export MOZ_ENABLE_WAYLAND=0
+        exec "${zenPkg}/bin/zen-beta" "$@"
+      '')
+    ];
+    meta = zenPkg.meta;
+  };
+in
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
-  programs.zen-browser.enable = true;
+  programs.zen-browser = {
+    enable = true;
+    package = zenWithXWayland;
+  };
 
   # Migrate Zen config from ~/.zen to ~/.config/zen (required as of 18.18.6b). Runs on switch when ~/.zen exists.
   home.activation.zenBrowserXdgMigration = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
