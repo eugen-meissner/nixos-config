@@ -3,6 +3,7 @@
   # imports = [ inputs.nix-gaming.nixosModules.default ];
   nix = {
     settings = {
+      allow-dirty = true;
       auto-optimise-store = true;
       experimental-features = [
         "nix-command"
