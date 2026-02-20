@@ -1,8 +1,24 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
   programs.zen-browser.enable = true;
+
+  # Migrate Zen config from ~/.zen to ~/.config/zen (required as of 18.18.6b). Runs on switch when ~/.zen exists.
+  home.activation.zenBrowserXdgMigration = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    if [ -d "$HOME/.zen" ]; then
+      echo "Migrating Zen Browser config: ~/.zen -> ~/.config/zen"
+      run mkdir -p "$HOME/.config/zen"
+      run cp -an "$HOME/.zen"/. "$HOME/.config/zen/"
+      run rm -rf "$HOME/.zen"
+      for f in "$HOME/.config/zen/extensions.json" "$HOME/.config/zen/pkcs11.txt" "$HOME/.config/zen/chrome_debugger_profile/pkcs11.txt"; do
+        if [ -f "$f" ]; then
+          run sed -i 's|\.zen|\.config/zen|g' "$f"
+        fi
+      done
+      echo "Done. Run: zen-beta --safe-mode (once), then close the browser."
+    fi
+  '';
 
   xdg.mimeApps =
     let
