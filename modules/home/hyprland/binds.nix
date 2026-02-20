@@ -30,6 +30,7 @@
       "$mainMod, E, exec, nemo"
       "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
       "$mainMod SHIFT, B, exec, toggle-waybar"
+      "$mainMod SHIFT, R, exec, hyprctl reload"
       "$mainMod, C ,exec, hyprpicker -a"
       "$mainMod, W,exec, wallpaper-picker"
       "$mainMod SHIFT, W,exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
