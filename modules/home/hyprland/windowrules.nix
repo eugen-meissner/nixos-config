@@ -72,11 +72,11 @@
       "no_blur on, match:class ^()$, match:title ^()$"
     ];
 
-    # Layer rules: use match:namespace for 0.53+
+    # Layer rules: use match:namespace for 0.53+, boolean effects need explicit value
     layerrule = [
-      "dimaround, match:namespace vicinae"
-      "dimaround, match:namespace rofi"
-      "dimaround, match:namespace swaync-control-center"
+      "dimaround on, match:namespace vicinae"
+      "dimaround on, match:namespace rofi"
+      "dimaround on, match:namespace swaync-control-center"
     ];
 
     # Workspace-specific gap overrides (variables section)
