@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
-  home.packages = with pkgs; [ codex ];
+  home.packages = [
+    inputs.codex.packages.${pkgs.system}.default
+  ];
 }
