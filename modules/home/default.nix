@@ -18,6 +18,7 @@
     ./nix-search/nix-search.nix       # TUI to search nixpkgs
     ./nvim.nix                        # neovim editor
     ./packages                        # other packages
+    ./rofi.nix
     ./signal.nix                      # signal messenger
     ./ssh.nix                         # ssh config
     ./superfile/superfile.nix         # terminal file manager
@@ -25,7 +26,6 @@
     ./swaync/swaync.nix               # notification deamon
     ./waybar                          # status bar
     ./waypaper.nix                    # GUI wallpaper picker
-    ./vicinae.nix                     # launcher
     ./xdg-mimes.nix                   # xdg config
     ./yubikey-manager.nix
     ./zsh                             # shell

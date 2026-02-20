@@ -14,7 +14,6 @@
     "waybar &"
     "swaync &"
     "kanshi &"
-    "vicinae server &"
     "udiskie --automount --notify --smart-tray &"
     "hyprctl setcursor Bibata-Modern-Ice 24 &"
     "restore-wallpaper &"

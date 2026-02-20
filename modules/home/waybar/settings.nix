@@ -152,7 +152,6 @@ in
     "custom/launcher" = {
       format = "";
       on-click = "random-wallpaper";
-      on-click-right = "vicinae toggle";
       tooltip = "true";
       tooltip-format = "Random Wallpaper";
     };

@@ -74,7 +74,6 @@
 
     # Layer rules: effect name is dim_around (snake_case)
     layerrule = [
-      "dim_around on, match:namespace vicinae"
       "dim_around on, match:namespace rofi"
       "dim_around on, match:namespace swaync-control-center"
     ];

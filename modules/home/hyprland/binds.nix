@@ -18,7 +18,6 @@
       "$mainMod, F, fullscreen, 0"
       "$mainMod SHIFT, F, fullscreen, 1"
       "$mainMod, Space, exec, toggle-float"
-      "$mainMod, D, exec, vicinae toggle"
       "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
       "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
       "$mainMod, Escape, exec, swaylock"
@@ -128,9 +127,6 @@
 
       "$mainMod, mouse_down, workspace, e-1"
       "$mainMod, mouse_up, workspace, e+1"
-
-      # clipboard manager
-      "$mainMod, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
     ];
 
     # mouse binding
