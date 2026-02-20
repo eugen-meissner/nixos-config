@@ -15,6 +15,7 @@ in
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
+  programs.zen-browser.suppressXdgMigrationWarning = true;
   programs.zen-browser.enable = true;
 
   # Override Zen desktop file so it launches with MOZ_ENABLE_WAYLAND=0 (fixes IPDL invalid file descriptor)
