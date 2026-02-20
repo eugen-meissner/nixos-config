@@ -8,6 +8,8 @@ in
   services.vicinae = {
     enable = true;
     package = inputs.vicinae.packages.${system}.default;
+    # Run as regular window so Hyprland doesn't keep the layer in a bad state after close (toggle works reliably)
+    useLayerShell = false;
 
     settings = {
       font = {
@@ -28,7 +30,8 @@ in
 
       faviconService = "twenty";
       popToRootOnClose = true;
-      closeOnFocusLoss = true;
+      # Keep layer/window in stack on focus loss so toggle can show it again instead of fully closing
+      closeOnFocusLoss = false;
 
       rootSearch = {
         searchFiles = true;
