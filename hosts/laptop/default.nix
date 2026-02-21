@@ -54,6 +54,17 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   boot = {
+    initrd = {
+      availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "usbhid"
+        "hid_generic"
+        "i915"
+      ];
+      kernelModules = [ "i915" ];
+    };
+
     kernelModules = [ "acpi_call" ];
     extraModulePackages =
       with config.boot.kernelPackages;
