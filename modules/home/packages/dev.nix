@@ -11,6 +11,9 @@ in {
     gcc
     gdb
     gnumake
+    go
+    gopls
+    delve
     nodePackages_latest.nodejs
     yarn
     python3
