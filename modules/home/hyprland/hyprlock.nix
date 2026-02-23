@@ -10,15 +10,15 @@
         fractional_scaling = 0;
       };
 
-      # background = [
-      #   {
-      #     path = "${../../../wallpapers/otherWallpaper/gruvbox/forest_road.jpg}";
-      #
-      #     color = "rgba(29, 32, 33, 255)";
-      #     blur_passes = 2;
-      #     vibrancy_darkness = 0.0;
-      #   }
-      # ];
+      background = [
+        {
+          path = "screenshot";
+
+          color = "rgba(29, 32, 33, 255)";
+          blur_passes = 2;
+          vibrancy_darkness = 0.0;
+        }
+      ];
 
       shape = [
         # User box
