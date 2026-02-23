@@ -5,6 +5,7 @@
     ./zen-browser.nix                 # firefox based browser
     ./btop.nix                        # resouces monitor 
     ./bluetui.nix                     # bluetooth tui
+    ./blue-light.nix                  # blue light filter
     ./cava.nix                        # audio visualizer
     ./cursor.nix
     ./codex.nix

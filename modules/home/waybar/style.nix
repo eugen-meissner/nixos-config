@@ -80,15 +80,29 @@ in
       padding: 1px;
     }
 
-    #pulseaudio, #network, #cpu, #memory, #disk, #battery, #language, #custom-notification, #custom-power-menu {
+    #pulseaudio, #custom-blue-light, #network, #cpu, #memory, #disk, #battery, #language, #custom-notification, #custom-power-menu {
       padding-left: 5px;
       padding-right: 5px;
       margin-right: 10px;
       color: ${text_color};
     }
 
-    #pulseaudio, #language, #custom-notification {
+    #pulseaudio, #custom-blue-light, #language, #custom-notification {
       margin-left: 15px;
+    }
+
+    #custom-blue-light.on {
+      color: ${yellow};
+    }
+
+    #custom-blue-light.off {
+      color: ${text_color};
+    }
+
+    #custom-blue-light {
+      min-width: 24px;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     #custom-power-menu {

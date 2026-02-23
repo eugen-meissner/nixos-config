@@ -39,6 +39,7 @@ in
       "memory"
       (if (host == "desktop") then "disk" else "")
       "pulseaudio"
+      "custom/blue-light"
       "network"
       "battery"
       "hyprland/language"
@@ -121,6 +122,16 @@ in
       on-click = "pamixer -t";
       on-click-right =
         "hyprctl dispatch exec '[float; center; size 950 650] ghostty -e wiremix'";
+    };
+    "custom/blue-light" = {
+      return-type = "json";
+      format = "{}";
+      align = 0.5;
+      justify = "center";
+      exec = "blue-light-status";
+      interval = 2;
+      on-click = "blue-light-toggle";
+      on-click-right = "systemctl --user restart wlsunset.service";
     };
     battery = {
       format = "<span foreground='${yellow}'>{icon}</span> {capacity}%";
