@@ -22,6 +22,7 @@ in {
     netcoredbg
     terraform
     redisinsight
+    spacetimedb
   ];
 
   home.sessionVariables = {
