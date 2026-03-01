@@ -20,7 +20,7 @@
       "$mainMod, Space, exec, toggle-float"
       "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
       "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
-      "$mainMod, Escape, exec, swaylock"
+      "$mainMod, Escape, exec, hyprlock"
       "ALT, Escape, exec, hyprlock"
       "$mainMod SHIFT, Escape, exec, power-menu"
       "$mainMod, P, pseudo,"

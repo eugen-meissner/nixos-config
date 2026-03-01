@@ -8,7 +8,6 @@
     sudo.enable = true;
 
     pam.services = {
-      swaylock = { };
       hyprlock = { };
     };
   };

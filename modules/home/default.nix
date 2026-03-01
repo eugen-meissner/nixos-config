@@ -24,7 +24,6 @@
     ./signal.nix                      # signal messenger
     ./ssh.nix                         # ssh config
     ./superfile/superfile.nix         # terminal file manager
-    ./swaylock.nix                    # lock screen
     ./swaync/swaync.nix               # notification deamon
     ./waybar                          # status bar
     ./waypaper.nix                    # GUI wallpaper picker
