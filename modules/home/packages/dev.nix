@@ -14,6 +14,11 @@ in {
     go
     gopls
     delve
+    rustc
+    cargo
+    rust-analyzer
+    rustfmt
+    clippy
     nodePackages_latest.nodejs
     yarn
     python3
