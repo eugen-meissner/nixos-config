@@ -35,6 +35,7 @@
     libnotify
     openssl
     pamixer                           # pulseaudio command line mixer
+    p7zip                             # 7z archive tools
     poweralertd
     udiskie                           # Automounter for removable media
     unzip
