@@ -16,5 +16,19 @@ in
 {
   home.packages = [ superfile ];
 
+  xdg.desktopEntries.superfile = {
+    name = "Superfile";
+    genericName = "File Manager";
+    comment = "Open directories in superfile";
+    exec = "ghostty -e superfile %f";
+    mimeType = [ "inode/directory" ];
+    categories = [
+      "ConsoleOnly"
+      "FileManager"
+      "System"
+    ];
+    terminal = false;
+  };
+
   xdg.configFile."superfile/config.toml".source = ./config.toml;
 }

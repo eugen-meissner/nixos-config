@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   hardware = {
+    ledger.enable = true;
+
     graphics = {
       enable = true;
       extraPackages = with pkgs; [

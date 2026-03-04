@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     ## Better core utils
+    bat                               # cat replacement
     duf                               # disk information
     fd                                # find replacement
     gping                             # ping with a graph
