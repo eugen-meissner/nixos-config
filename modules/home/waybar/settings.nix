@@ -1,4 +1,4 @@
-{ host, ... }:
+{ host, pkgs, ... }:
 let
   custom = {
     font = "Maple Mono";
@@ -18,6 +18,98 @@ let
     opacity = "1";
     indicator_height = "2px";
   };
+
+  btopCommand =
+    "hyprctl dispatch exec '[float; center; size 950 650] ghostty -e btop'";
+
+  systemResourcesScript = pkgs.writeShellScript "waybar-system-resources" ''
+    #!${pkgs.bash}/bin/bash
+
+    cpu_state_dir="''${XDG_RUNTIME_DIR:-/tmp}"
+    if [[ ! -w "$cpu_state_dir" ]]; then
+      cpu_state_dir="/tmp"
+    fi
+    cpu_state_file="$cpu_state_dir/waybar-system-resources.cpu"
+
+    read_cpu_stat() {
+      awk '
+        /^cpu / {
+          idle = $5 + $6
+          total = 0
+          for (i = 2; i <= NF; i++) {
+            total += $i
+          }
+          print total, idle
+        }
+      ' /proc/stat
+    }
+
+    read -r total idle <<< "$(read_cpu_stat)"
+    if [[ -r "$cpu_state_file" ]]; then
+      read -r prev_total prev_idle < "$cpu_state_file"
+    else
+      sleep 0.2
+      read -r prev_total prev_idle <<< "$(read_cpu_stat)"
+    fi
+    printf '%s %s\n' "$total" "$idle" > "$cpu_state_file"
+
+    total_diff=$((total - prev_total))
+    idle_diff=$((idle - prev_idle))
+    if (( total_diff > 0 )); then
+      cpu_usage=$((((100 * (total_diff - idle_diff)) + (total_diff / 2)) / total_diff))
+    else
+      cpu_usage=0
+    fi
+
+    mem_total_kb="$(awk '/^MemTotal:/ { print $2 }' /proc/meminfo)"
+    mem_available_kb="$(awk '/^MemAvailable:/ { print $2 }' /proc/meminfo)"
+    mem_used_kb=$((mem_total_kb - mem_available_kb))
+    mem_usage=$((((100 * mem_used_kb) + (mem_total_kb / 2)) / mem_total_kb))
+    mem_used_gib="$(awk -v kib="$mem_used_kb" 'BEGIN { printf "%.1f", kib / 1048576 }')"
+    mem_total_gib="$(awk -v kib="$mem_total_kb" 'BEGIN { printf "%.1f", kib / 1048576 }')"
+
+    temp_input_file=""
+    for label_file in /sys/class/hwmon/hwmon*/temp*_label; do
+      [[ -r "$label_file" ]] || continue
+      if [[ "$(cat "$label_file")" == "Package id 0" ]]; then
+        temp_input_file="''${label_file%_label}_input"
+        break
+      fi
+    done
+
+    if [[ -z "$temp_input_file" ]]; then
+      for zone_dir in /sys/class/thermal/thermal_zone*; do
+        [[ -r "$zone_dir/type" ]] || continue
+        if [[ "$(cat "$zone_dir/type")" == "x86_pkg_temp" && -r "$zone_dir/temp" ]]; then
+          temp_input_file="$zone_dir/temp"
+          break
+        fi
+      done
+    fi
+
+    temp_text="N/A"
+    temp_class="normal"
+    if [[ -n "$temp_input_file" && -r "$temp_input_file" ]]; then
+      temp_raw="$(cat "$temp_input_file")"
+      if (( temp_raw >= 1000 )); then
+        temp_c=$(((temp_raw + 500) / 1000))
+      else
+        temp_c="$temp_raw"
+      fi
+
+      temp_text="''${temp_c}C"
+      if (( temp_c >= 85 )); then
+        temp_class="critical"
+      elif (( temp_c >= 75 )); then
+        temp_class="warning"
+      fi
+    fi
+
+    text="<span foreground='${custom.green}'> </span>''${cpu_usage}% <span foreground='${custom.cyan}'>󰟜 </span>''${mem_usage}% <span foreground='${custom.orange}'> </span>''${temp_text}"
+    tooltip="CPU: ''${cpu_usage}% | RAM: ''${mem_usage}% (''${mem_used_gib}/''${mem_total_gib} GiB) | Temp: ''${temp_text}"
+
+    printf '{"text":"%s","tooltip":"%s","class":"%s"}\n' "$text" "$tooltip" "$temp_class"
+  '';
 in
 {
   programs.waybar.settings.mainBar = with custom; {
@@ -35,8 +127,7 @@ in
     ];
     modules-center = [ "clock" ];
     modules-right = [
-      "cpu"
-      "memory"
+      "custom/system-resources"
       (if (host == "desktop") then "disk" else "")
       "pulseaudio"
       "custom/blue-light"
@@ -83,17 +174,14 @@ in
         "5" = [ ];
       };
     };
-    cpu = {
-      format = "<span foreground='${green}'> </span> {usage}%";
-      format-alt = "<span foreground='${green}'> </span> {avg_frequency} GHz";
+    "custom/system-resources" = {
+      return-type = "json";
+      format = "{}";
+      escape = false;
+      exec = "${systemResourcesScript}";
       interval = 2;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
-    };
-    memory = {
-      format = "<span foreground='${cyan}'>󰟜 </span>{}%";
-      format-alt = "<span foreground='${cyan}'>󰟜 </span>{used} GiB"; # 
-      interval = 2;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
+      on-click = btopCommand;
+      on-click-right = btopCommand;
     };
     disk = {
       # path = "/";

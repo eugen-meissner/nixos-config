@@ -2,6 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     settings.monitor = [
+      "DP-1,5120x2880@60,auto,2"
       ",preferred,auto,auto"
       "DP-2,disable"
     ];

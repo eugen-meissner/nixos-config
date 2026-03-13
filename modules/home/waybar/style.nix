@@ -80,7 +80,7 @@ in
       padding: 1px;
     }
 
-    #pulseaudio, #custom-blue-light, #network, #cpu, #memory, #disk, #battery, #language, #custom-notification, #custom-power-menu {
+    #pulseaudio, #custom-blue-light, #network, #custom-system-resources, #disk, #battery, #language, #custom-notification, #custom-power-menu {
       padding-left: 5px;
       padding-right: 5px;
       margin-right: 10px;
@@ -97,6 +97,14 @@ in
 
     #custom-blue-light.off {
       color: ${text_color};
+    }
+
+    #custom-system-resources.warning {
+      color: ${yellow};
+    }
+
+    #custom-system-resources.critical {
+      color: ${red};
     }
 
     #custom-blue-light {

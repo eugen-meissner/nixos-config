@@ -1,4 +1,7 @@
 { pkgs, config, ... }:
+let
+  ollamaPackage = pkgs.ollama-vulkan;
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -10,11 +13,17 @@
     brightnessctl
     cpupower-gui
     ffmpeg
+    ollamaPackage
     powertop
     yt-dlp
   ];
 
   services = {
+    ollama = {
+      enable = true;
+      package = ollamaPackage;
+    };
+
     power-profiles-daemon.enable = false;
     tlp.enable = true;
 
