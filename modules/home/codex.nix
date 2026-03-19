@@ -38,4 +38,8 @@ in
       '';
     })
   ];
+
+  home.sessionVariables = {
+    PLAYWRIGHT_MCP_EXECUTABLE_PATH = "${pkgs.chromium}/bin/chromium";
+  };
 }

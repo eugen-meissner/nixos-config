@@ -38,6 +38,11 @@
       middle_click_paste = false;
     };
 
+    render = {
+      # Helps frame pacing when the compositor is close to missing vblank.
+      new_render_scheduling = true;
+    };
+
     dwindle = {
       force_split = 2;
       special_scale_factor = 1.0;
