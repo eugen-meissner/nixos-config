@@ -39,10 +39,13 @@
       "$mainMod, equal, exec, woomer"
       # "$mainMod SHIFT, W, exec, vm-start"
 
-      # screenshot
-      ",Print, exec, screenshot --copy"
-      "$mainMod, Print, exec, screenshot --save"
-      "$mainMod SHIFT, Print, exec, screenshot --swappy"
+      # screenshots
+      ",Print, exec, screenshot copy area"
+      "SHIFT, Print, exec, screenshot save area"
+      "CTRL, Print, exec, screenshot copy active"
+      "CTRL SHIFT, Print, exec, screenshot save active"
+      "$mainMod, Print, exec, screenshot save output"
+      "$mainMod SHIFT, Print, exec, screenshot edit area"
 
       # switch focus
       "$mainMod, left,  movefocus, l"
