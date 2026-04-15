@@ -13,7 +13,6 @@
     "wl-clip-persist --clipboard both &"
     "wl-paste --watch cliphist store &"
     "waybar &"
-    "swaync &"
     "kanshi &"
     "udiskie --automount --notify --smart-tray &"
     "hyprctl setcursor Bibata-Modern-Ice 24 &"

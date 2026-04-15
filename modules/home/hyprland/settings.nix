@@ -34,7 +34,6 @@
       animate_manual_resizes = false;
       enable_swallow = true;
       focus_on_activate = true;
-      on_focus_under_fullscreen = 2;
       middle_click_paste = false;
     };
 

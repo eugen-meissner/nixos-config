@@ -10,7 +10,7 @@ let
     # Get source from the flake input
     src = inputs.superfile;
     # Vendor hash calculated by Nix (from the error message)
-    vendorHash = "sha256-wOxejOv2XLyzl9ZSkhI2OYMQ7yWeKxSdyFjm/dKe+Ag=";
+    vendorHash = "sha256-NCXX1EbDuLE4Lm+OR1tLCckI6c5nla/uKCCnRIIriaI=";
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postFixup = ''
       wrapProgram $out/bin/superfile \

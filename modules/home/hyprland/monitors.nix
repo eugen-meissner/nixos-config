@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
     settings.monitor = [
@@ -8,12 +8,16 @@
     ];
 
     extraConfig = ''
-      # hyprlang noerror true
-        source = ~/.config/hypr/monitors.conf
-        source = ~/.config/hypr/workspaces.conf
-      # hyprlang noerror false
+      source = ~/.config/hypr/monitors.conf
+      source = ~/.config/hypr/workspaces.conf
     '';
   };
+
+  home.activation.hyprlandWritableOverrides = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p "$HOME/.config/hypr"
+    touch "$HOME/.config/hypr/monitors.conf"
+    touch "$HOME/.config/hypr/workspaces.conf"
+  '';
 
   home.packages = with pkgs; [ nwg-displays ];
 }

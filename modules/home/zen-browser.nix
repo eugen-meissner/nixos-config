@@ -15,7 +15,6 @@ in
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
-  programs.zen-browser.suppressXdgMigrationWarning = true;
   programs.zen-browser.enable = true;
 
   # Override Zen desktop file so it launches with MOZ_ENABLE_WAYLAND=0 (fixes IPDL invalid file descriptor)
@@ -46,8 +45,16 @@ in
         let
           system = pkgs.stdenv.hostPlatform.system;
           zen-browser = inputs.zen-browser.packages.${system}.beta;
+          appsDir = "${zen-browser}/share/applications";
+          desktopFile = lib.findFirst
+            (f: lib.hasSuffix ".desktop" f)
+            null
+            (builtins.attrNames (builtins.readDir appsDir));
         in
-        zen-browser.meta.desktopFileName;
+        if desktopFile == null then
+          throw "zen-browser: no .desktop file found in ${appsDir}"
+        else
+          desktopFile;
 
       associations = builtins.listToAttrs (
         map (name: { inherit name value; }) [
