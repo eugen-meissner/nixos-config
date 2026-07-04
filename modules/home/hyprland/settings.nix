@@ -38,8 +38,8 @@
     };
 
     render = {
-      # Helps frame pacing when the compositor is close to missing vblank.
-      new_render_scheduling = true;
+      # Hyprland tracks lag spikes on some setups with this enabled.
+      new_render_scheduling = false;
     };
 
     dwindle = {

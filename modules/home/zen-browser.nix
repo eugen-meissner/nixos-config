@@ -15,7 +15,10 @@ in
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
-  programs.zen-browser.enable = true;
+  programs.zen-browser = {
+    enable = true;
+    setAsDefaultBrowser = true;
+  };
 
   # Override Zen desktop file so it launches with MOZ_ENABLE_WAYLAND=0 (fixes IPDL invalid file descriptor)
   home.activation.zenDesktopXwayland = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -39,44 +42,4 @@ in
     fi
   '';
 
-  xdg.mimeApps =
-    let
-      value =
-        let
-          system = pkgs.stdenv.hostPlatform.system;
-          zen-browser = inputs.zen-browser.packages.${system}.beta;
-          appsDir = "${zen-browser}/share/applications";
-          desktopFile = lib.findFirst
-            (f: lib.hasSuffix ".desktop" f)
-            null
-            (builtins.attrNames (builtins.readDir appsDir));
-        in
-        if desktopFile == null then
-          throw "zen-browser: no .desktop file found in ${appsDir}"
-        else
-          desktopFile;
-
-      associations = builtins.listToAttrs (
-        map (name: { inherit name value; }) [
-          "application/x-extension-shtml"
-          "application/x-extension-xhtml"
-          "application/x-extension-html"
-          "application/x-extension-xht"
-          "application/x-extension-htm"
-          "x-scheme-handler/unknown"
-          "x-scheme-handler/mailto"
-          "x-scheme-handler/chrome"
-          "x-scheme-handler/about"
-          "x-scheme-handler/https"
-          "x-scheme-handler/http"
-          "application/xhtml+xml"
-          "application/json"
-          "text/html"
-        ]
-      );
-    in
-    {
-      associations.added = associations;
-      defaultApplications = associations;
-    };
 }
