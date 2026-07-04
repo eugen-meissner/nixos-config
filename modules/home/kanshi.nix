@@ -7,18 +7,25 @@
         profile.name = "docked";
         profile.outputs = [
           {
-            criteria = "DP-1";
-            mode = "5120x2880@60Hz";
-            scale = 2.0;
+            criteria = "DP-5";
+            mode = "2560x1440@59.95100Hz";
+            position = "0,0";
+            scale = 1.0;
+            status = "enable";
+          }
+          {
+            criteria = "DP-8";
+            mode = "2560x1440@59.95100Hz";
+            position = "2560,0";
+            scale = 1.0;
             status = "enable";
           }
           {
             criteria = "eDP-1";
-            status = "disable";
-          }
-          {
-            criteria = "DP-2";
-            status = "disable";
+            mode = "1920x1080@60.02000Hz";
+            position = "5120,0";
+            scale = 1.5;
+            status = "enable";
           }
         ];
       }

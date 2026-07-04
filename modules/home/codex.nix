@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  version = "0.104.0";
+  version = "0.142.5";
   system = pkgs.stdenv.hostPlatform.system;
   binaryName =
     if system == "x86_64-linux" then
@@ -10,7 +10,7 @@ let
   asset = "${binaryName}.tar.gz";
   hash =
     if system == "x86_64-linux" then
-      "sha256-4QloDXgyPo6Od7GyI6JXdv7qbgQOsG9QyKQ5D1k8spg="
+      "sha256-y5M+w8thv0tfyI7s9eYUmCn6phclNbbvCvsBVL60qrg="
     else
       throw "Missing codex-cli release hash for system: ${system}";
 in

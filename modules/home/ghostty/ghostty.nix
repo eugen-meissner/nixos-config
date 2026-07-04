@@ -7,8 +7,8 @@
     settings = {
       ##### Font #####
       font-family = [
-        "Maple Mono"
-        # "DejaVu Sans"
+        "Iosevka Nerd Font Mono"
+        "Iosevka Nerd Font"
       ];
       font-size = "${if (host == "laptop") then "12" else "14"}";
       font-feature = [
@@ -75,7 +75,7 @@
     };
 
     themes.gruvbox = {
-      background = "1d2021";
+      background = "000000";
       foreground = "fbf1c7";
 
       cursor-color = "D5C4A1";
