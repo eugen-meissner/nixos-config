@@ -4,13 +4,13 @@ let
   pdfPreviewDeps = [ pkgs.poppler-utils ];
   # Build superfile using buildGoModule to handle dependencies properly
   # This avoids the vendor directory issues with the flake's build
-  superfile = pkgs.buildGoModule rec {
+  superfile = (pkgs.buildGoModule.override { go = pkgs.go_1_26; }) rec {
     pname = "superfile";
     version = "1.5.0";
     # Get source from the flake input
     src = inputs.superfile;
     # Vendor hash calculated by Nix (from the error message)
-    vendorHash = "sha256-NCXX1EbDuLE4Lm+OR1tLCckI6c5nla/uKCCnRIIriaI=";
+    vendorHash = "sha256-nkKvb62+tv44iX7gPpDpinL1vqEkOhGyAen87O+qZnM=";
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postFixup = ''
       wrapProgram $out/bin/superfile \

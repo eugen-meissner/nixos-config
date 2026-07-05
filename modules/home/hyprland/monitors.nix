@@ -2,9 +2,10 @@
 {
   wayland.windowManager.hyprland = {
     settings.monitor = [
-      "DP-1,5120x2880@60,auto,2"
+      "DP-8,2560x1440@120,0x0,1"
+      "DP-5,2560x1440@120,2560x0,1"
+      "eDP-1,disable"
       ",preferred,auto,auto"
-      "DP-2,disable"
     ];
 
     extraConfig = ''
