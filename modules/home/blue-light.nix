@@ -36,7 +36,5 @@ in
       Restart = "on-failure";
       RestartSec = 2;
     };
-
-    Install.WantedBy = [ "default.target" ];
   };
 }
