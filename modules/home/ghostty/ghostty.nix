@@ -18,7 +18,7 @@
       ];
 
       ##### Theme #####
-      theme = "gruvbox";
+      theme = "moonfly";
       background-opacity = 0.5;
       adjust-cursor-thickness = 1;
 
@@ -74,33 +74,34 @@
       ];
     };
 
-    themes.gruvbox = {
-      background = "000000";
-      foreground = "fbf1c7";
+    themes.moonfly = {
+      background = "080808";
+      foreground = "bdbdbd";
 
-      cursor-color = "D5C4A1";
+      cursor-color = "9e9e9e";
+      cursor-text = "080808";
 
-      selection-background = "cell-foreground";
-      selection-foreground = "cell-background";
+      selection-background = "b2ceee";
+      selection-foreground = "080808";
 
       palette = [
-        "0=32302f"
-        "1=cc241d"
-        "2=98971a"
-        "3=d79921"
-        "4=458588"
-        "5=b16286"
-        "6=689d6a"
-        "7=ebdbb2"
+        "0=323437"
+        "1=ff5454"
+        "2=8cc85f"
+        "3=e3c78a"
+        "4=80a0ff"
+        "5=cf87e8"
+        "6=79dac8"
+        "7=c6c6c6"
 
-        "8=928374"
-        "9=fb4934"
-        "10=b8bb26"
-        "11=fabd2f"
-        "12=83a598"
-        "13=d3869b"
-        "14=8ec07c"
-        "15=fbf1c7"
+        "8=949494"
+        "9=ff5189"
+        "10=36c692"
+        "11=c6c684"
+        "12=74b2ff"
+        "13=ae81ff"
+        "14=85dc85"
+        "15=e4e4e4"
       ];
     };
   };
