@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.roccos-lebenslust.de)",
+      "Bash(curl -sL https://www.roccos-lebenslust.de/ -o /tmp/claude-1000/-etc-nixos/24636300-659d-442f-af02-a49833f4d9da/scratchpad/roccos.html)",
+      "Bash(curl -s https://www.roccos-lebenslust.de/wp-sitemap-posts-page-1.xml)",
+      "Bash(npm --version)",
+      "Bash(mkdir -p ~/Dev/personal/roccos-lebenslust-seesen)",
+      "Bash(curl -sL -o menu.pdf \"https://www.roccos-lebenslust.de/wp-content/uploads/sites/9049/2024/02/Rocco_Ausserhaus.pdf\")",
+      "Bash(pdftotext -layout menu.pdf menu.txt)",
+      "Bash(curl -sL https://www.roccos-lebenslust.de/feiern-bei-rocco/ -o feiern.html)",
+      "Bash(curl -sL https://www.roccos-lebenslust.de/unsere-speisen/ -o speisen.html)",
+      "Bash(curl -sL https://www.roccos-lebenslust.de/impressum/ -o impressum.html)",
+      "Bash(curl -sL https://www.roccos-lebenslust.de/datenschutz/ -o datenschutz.html)",
+      "Bash(grep -vE '\\\\-[0-9]+x[0-9]+\\\\.\\(jpg|jpeg|png\\)$')",
+      "Bash(pdfinfo menu.pdf)",
+      "Read(//home/em/Dev/personal/**)",
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(npx astro *)",
+      "Bash(montage -label '%f' *.jpg -tile 6x -geometry 220x160+4+4 /tmp/claude-1000/-etc-nixos/24636300-659d-442f-af02-a49833f4d9da/scratchpad/contact-sheet.jpg)",
+      "Bash(nix run *)",
+      "Bash(nix shell *)",
+      "Bash(xxd)",
+      "Bash(curl -s -o /tmp/claude-1000/-etc-nixos/24636300-659d-442f-af02-a49833f4d9da/scratchpad/ev-test.jpg -w \"%{http_code} %{size_download}\\\\n\" \"https://www.roccos-lebenslust.de/wp-content/uploads/sites/9049/2024/06/IMG-20240611-WA0003-1.jpg\")",
+      "Bash(fc-list)",
+      "Bash(python3 -c ' *)",
+      "Bash(npm run *)"
+    ]
+  }
+}

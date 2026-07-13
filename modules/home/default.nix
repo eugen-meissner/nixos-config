@@ -21,6 +21,7 @@
     ./nvim.nix                        # neovim editor
     ./packages                        # other packages
     ./rofi.nix
+    ./rucola.nix                      # terminal note manager
     ./signal.nix                      # signal messenger
     ./ssh.nix                         # ssh config
     ./superfile/superfile.nix         # terminal file manager
