@@ -18,7 +18,7 @@
     "hyprctl setcursor Bibata-Modern-Ice 24 &"
     "restore-wallpaper &"
 
-    "[workspace 1 silent] zen-beta"
+    "[workspace 1 silent] env MOZ_ENABLE_WAYLAND=1 zen-beta"
     "[workspace 2 silent] ghostty"
   ];
 }

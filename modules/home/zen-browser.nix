@@ -2,13 +2,13 @@
 let
   system = pkgs.stdenv.hostPlatform.system;
   zenPkg = inputs.zen-browser.packages.${system}.beta;
-  # Desktop override dir: same filename(s) as package, Exec set to use XWayland (fixes IPDL error)
-  zenDesktopOverride = pkgs.runCommand "zen-beta-desktop-xwayland" { } ''
+  # Desktop override dir: same filename(s) as package, Exec set to use native Wayland scaling.
+  zenDesktopOverride = pkgs.runCommand "zen-beta-desktop-wayland" { } ''
     mkdir -p $out
     shopt -s nullglob
     for f in "${zenPkg}"/share/applications/*.desktop; do
       name=$(basename "$f")
-      sed 's|^Exec=.*|Exec=env MOZ_ENABLE_WAYLAND=0 zen-beta %u|' "$f" > "$out/$name"
+      sed 's|^Exec=.*|Exec=env MOZ_ENABLE_WAYLAND=1 zen-beta %u|' "$f" > "$out/$name"
     done
   '';
 in
@@ -20,8 +20,8 @@ in
     setAsDefaultBrowser = true;
   };
 
-  # Override Zen desktop file so it launches with MOZ_ENABLE_WAYLAND=0 (fixes IPDL invalid file descriptor)
-  home.activation.zenDesktopXwayland = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  # Override Zen desktop file so launchers do not force it onto XWayland.
+  home.activation.zenDesktopWayland = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     run mkdir -p "$HOME/.local/share/applications"
     run cp -f "${zenDesktopOverride}"/* "$HOME/.local/share/applications/"
   '';
