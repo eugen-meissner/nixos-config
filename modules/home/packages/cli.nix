@@ -40,6 +40,7 @@
     poweralertd
     udiskie                           # Automounter for removable media
     unzip
+    watchexec                         # run commands when files change
     wget
     wl-clipboard                      # clipboard utils for wayland (wl-copy, wl-paste)
     xdg-utils
