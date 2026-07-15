@@ -59,7 +59,6 @@ in {
     texlab
     latexindent
     redisinsight
-    spacetimedb
   ];
 
   home.sessionVariables = {
