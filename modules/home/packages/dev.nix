@@ -16,13 +16,22 @@ let
       hash = "sha256-o0gJpoOf3v/yG5NH1/tba1jmqcwgil5ihT8pyD6xB6M=";
     };
   });
+  codelldb = pkgs.writeShellScriptBin "codelldb" ''
+    exec ${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb "$@"
+  '';
+  latexindent = pkgs.writeShellScriptBin "latexindent" ''
+    exec ${pkgs.texlivePackages.latexindent}/bin/latexindent "$@"
+  '';
 in {
   home.packages = with pkgs; [
+    djlint
     gcc
     gdb
     gnumake
     go
     gopls
+    gofumpt
+    gotools
     delve
     rustc
     cargo
@@ -31,12 +40,24 @@ in {
     clippy
     claudeCode
     nodePackages_latest.nodejs
+    nodePackages_latest.prettier
+    nodePackages_latest.typescript
+    nodePackages_latest.typescript-language-server
+    nodePackages_latest.vscode-langservers-extracted
     yarn
     python3
     python312Packages.ipython
     dotnetCombined
+    roslyn-ls
+    lua-language-server
+    stylua
+    tailwindcss-language-server
     netcoredbg
+    codelldb
     terraform
+    terraform-ls
+    texlab
+    latexindent
     redisinsight
     spacetimedb
   ];
