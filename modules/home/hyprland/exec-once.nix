@@ -19,6 +19,7 @@
     "restore-wallpaper &"
 
     "[workspace 1 silent] env MOZ_ENABLE_WAYLAND=1 zen-beta"
-    "[workspace 2 silent] ghostty"
+    # Temporarily use foot while isolating whether Ghostty triggers the i915_flip stall.
+    "[workspace 2 silent] foot"
   ];
 }

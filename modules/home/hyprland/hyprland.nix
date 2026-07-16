@@ -109,6 +109,7 @@ in
     slurp
     wl-clip-persist
     cliphist
+    foot
     wf-recorder
     glib
     wayland
