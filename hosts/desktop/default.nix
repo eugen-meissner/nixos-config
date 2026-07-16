@@ -15,4 +15,17 @@
   hardware.graphics.extraPackages = lib.mkForce [
     pkgs.rocmPackages.clr.icd
   ];
+
+  # Apply ownership to the secondary drive after its filesystem is mounted.
+  systemd.services.data-ownership = {
+    description = "Set ownership of the data drive";
+    wantedBy = [ "multi-user.target" ];
+    requires = [ "data.mount" ];
+    after = [ "data.mount" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.coreutils}/bin/chown em:users /data";
+      RemainAfterExit = true;
+    };
+  };
 }

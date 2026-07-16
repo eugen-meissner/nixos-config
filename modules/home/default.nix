@@ -11,6 +11,7 @@
     ./codex.nix
     ./dbeaver.nix
     ./fastfetch/fastfetch.nix         # fetch tool
+    ./foot.nix                        # terminal
     ./fzf.nix                         # fuzzy finder
     ./ghostty/ghostty.nix             # terminal
     ./git.nix                         # version control

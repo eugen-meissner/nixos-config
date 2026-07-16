@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   dotnetCombined = pkgs.dotnetCorePackages.combinePackages [
@@ -6,6 +6,7 @@ let
     pkgs.dotnetCorePackages.sdk_9_0
     pkgs.dotnetCorePackages.sdk_10_0
   ];
+  roslynLs = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.roslyn-ls;
   claudeCodeVersion = "2.1.201";
   claudeCodePlatform =
     "${pkgs.stdenvNoCC.hostPlatform.node.platform}-${pkgs.stdenvNoCC.hostPlatform.node.arch}";
@@ -48,7 +49,7 @@ in {
     python3
     python312Packages.ipython
     dotnetCombined
-    roslyn-ls
+    roslynLs
     lua-language-server
     stylua
     tailwindcss-language-server
