@@ -27,10 +27,14 @@
     options = [ "fmask=0077" "dmask=0077" ];
   };
 
-  fileSystems."/data" = {
+  fileSystems."/mnt/data" = {
     device = "/dev/disk/by-label/data";
     fsType = "ext4";
-    options = [ "nofail" ];
+    options = [
+      "nofail"
+      "x-gvfs-show"
+      "x-gvfs-name=Data"
+    ];
   };
 
   swapDevices = [

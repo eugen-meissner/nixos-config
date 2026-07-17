@@ -18,13 +18,13 @@
 
   # Apply ownership to the secondary drive after its filesystem is mounted.
   systemd.services.data-ownership = {
-    description = "Set ownership of the data drive";
+    description = "Prepare the data drive";
     wantedBy = [ "multi-user.target" ];
-    requires = [ "data.mount" ];
-    after = [ "data.mount" ];
+    requires = [ "mnt-data.mount" ];
+    after = [ "mnt-data.mount" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.coreutils}/bin/chown em:users /data";
+      ExecStart = "${pkgs.coreutils}/bin/install -d -m 0755 -o em -g users /mnt/data /mnt/data/SteamLibrary";
       RemainAfterExit = true;
     };
   };
