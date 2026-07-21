@@ -49,6 +49,7 @@ in {
     python3
     python312Packages.ipython
     dotnetCombined
+    exercism
     roslynLs
     lua-language-server
     stylua

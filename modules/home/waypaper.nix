@@ -13,7 +13,7 @@ in
   xdg.configFile."waypaper/config.ini".text = ''
     [Settings]
     language = en
-    folder = ~/Pictures/wallpapers/others
+    folder = ~/Pictures/Wallpaper
     monitors = All
     wallpaper = ~/Pictures/wallpapers/others/bmw-e30-m3-evo-dtm-t7-3840x2160.png
     backend = swww
