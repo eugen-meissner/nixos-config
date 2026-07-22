@@ -6,6 +6,7 @@
     linux-wallpaperengine
     mupen64plus
     obs-studio
+    rpcs3
     (retroarch.withCores (cores: with cores; [ ppsspp ]))
     transmission_4-gtk
     thunderbird
