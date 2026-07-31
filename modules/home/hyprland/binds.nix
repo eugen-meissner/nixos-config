@@ -40,6 +40,7 @@
       # "$mainMod SHIFT, W, exec, vm-start"
 
       # screenshots
+      "$mainMod, S, exec, screenshot copy area"
       ",Print, exec, screenshot copy area"
       "SHIFT, Print, exec, screenshot save area"
       "CTRL, Print, exec, screenshot copy active"
