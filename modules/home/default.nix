@@ -20,6 +20,7 @@
     ./kanshi.nix
     ./nix-search/nix-search.nix       # TUI to search nixpkgs
     ./nvim.nix                        # neovim editor
+    ./opencode.nix                    # AI coding agent
     ./packages                        # other packages
     ./rofi.nix
     ./rucola.nix                      # terminal note manager

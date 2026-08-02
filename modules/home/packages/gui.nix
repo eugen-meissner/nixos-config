@@ -8,6 +8,7 @@
     obs-studio
     rpcs3
     (retroarch.withCores (cores: with cores; [ ppsspp ]))
+    teamspeak6-client
     transmission_4-gtk
     thunderbird
   ];
