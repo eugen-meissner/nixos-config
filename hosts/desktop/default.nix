@@ -16,6 +16,21 @@
     pkgs.rocmPackages.clr.icd
   ];
 
+  # Brother HL-L2350DW printing. Avahi discovers the printer over Wi-Fi;
+  # brlaser also provides a model-specific driver for USB or legacy queues.
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.brlaser ];
+  };
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  programs.system-config-printer.enable = true;
+
   # Apply ownership to the secondary drive after its filesystem is mounted.
   systemd.services.data-ownership = {
     description = "Prepare the data drive";

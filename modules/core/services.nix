@@ -10,6 +10,8 @@
 
     hardware.bolt.enable = true;
 
+    tailscale.enable = true;
+
     dbus.enable = true;
     fstrim.enable = true;
 
