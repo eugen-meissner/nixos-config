@@ -17,9 +17,5 @@
     "udiskie --automount --notify --smart-tray &"
     "hyprctl setcursor Bibata-Modern-Ice 24 &"
     "restore-wallpaper &"
-
-    "[workspace 1 silent] env MOZ_ENABLE_WAYLAND=1 zen-beta"
-    # Temporarily use foot while isolating whether Ghostty triggers the i915_flip stall.
-    "[workspace 2 silent] foot"
   ];
 }
