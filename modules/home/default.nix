@@ -1,5 +1,7 @@
 { ... }:
 {
+  home.sessionPath = [ "$HOME/.local/bin" ];
+
   imports = [
     ./audacious/audacious.nix         # music player
     ./zen-browser.nix                 # firefox based browser
