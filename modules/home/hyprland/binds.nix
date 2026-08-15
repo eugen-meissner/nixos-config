@@ -1,5 +1,19 @@
-{ ... }:
+{ pkgs, ... }:
+let
+  studioDisplayRecover = pkgs.writeShellApplication {
+    name = "studio-display-recover";
+    runtimeInputs = [ pkgs.hyprland ];
+    text = ''
+      # Force the GPU and Studio Display adapter to retrain the DP link.
+      hyprctl dispatch dpms off DP-2 || true
+      sleep 2
+      hyprctl dispatch dpms on DP-2 || true
+    '';
+  };
+in
 {
+  home.packages = [ studioDisplayRecover ];
+
   wayland.windowManager.hyprland.settings = {
     binds = {
       movefocus_cycles_fullscreen = true;
@@ -31,6 +45,8 @@
       "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] foot -e superfile'"
       "$mainMod SHIFT, B, exec, toggle-waybar"
       "$mainMod SHIFT, R, exec, hyprctl reload"
+      # Blind recovery if the Studio Display stops showing video.
+      "$mainMod CTRL, R, exec, studio-display-recover"
       "$mainMod, C ,exec, hyprpicker -a"
       "$mainMod, W,exec, wallpaper-picker"
       "$mainMod SHIFT, W,exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
