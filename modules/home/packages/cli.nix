@@ -10,6 +10,7 @@
     man-pages                         # extra man pages
     ncdu                              # disk space
     ripgrep                           # grep replacement
+    scanmem                           # memory scanner (cheat-engine-like CLI)
     tldr
 
     ## Tools / useful cli

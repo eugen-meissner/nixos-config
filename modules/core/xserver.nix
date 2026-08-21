@@ -34,8 +34,8 @@ in
       CONFIG_FILE="${waypaperConfig}"
       WALLPAPER_PATH=""
       if [ -f "$CONFIG_FILE" ]; then
-        WALLPAPER_PATH=$(grep '^wallpaper = ' "$CONFIG_FILE" | sed 's/^wallpaper = //' | tr -d ' ')
-        WALLPAPER_PATH=$(echo "$WALLPAPER_PATH" | sed "s|^~|/home/${username}|")
+        WALLPAPER_PATH=$(grep '^wallpaper = ' "$CONFIG_FILE" | ${pkgs.gnused}/bin/sed 's/^wallpaper = //' | tr -d ' ')
+        WALLPAPER_PATH=$(echo "$WALLPAPER_PATH" | ${pkgs.gnused}/bin/sed "s|^~|/home/${username}|")
       fi
       if [ -z "$WALLPAPER_PATH" ] || [ ! -f "$WALLPAPER_PATH" ]; then
         WALLPAPER_PATH="${fallbackBg}"
@@ -56,8 +56,8 @@ in
       CONFIG_FILE="${waypaperConfig}"
       WALLPAPER_PATH=""
       if [ -f "$CONFIG_FILE" ]; then
-        WALLPAPER_PATH=$(grep '^wallpaper = ' "$CONFIG_FILE" | sed 's/^wallpaper = //' | tr -d ' ')
-        WALLPAPER_PATH=$(echo "$WALLPAPER_PATH" | sed "s|^~|/home/${username}|")
+        WALLPAPER_PATH=$(grep '^wallpaper = ' "$CONFIG_FILE" | ${pkgs.gnused}/bin/sed 's/^wallpaper = //' | tr -d ' ')
+        WALLPAPER_PATH=$(echo "$WALLPAPER_PATH" | ${pkgs.gnused}/bin/sed "s|^~|/home/${username}|")
       fi
       if [ -z "$WALLPAPER_PATH" ] || [ ! -f "$WALLPAPER_PATH" ]; then
         WALLPAPER_PATH="${fallbackBg}"
