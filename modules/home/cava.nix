@@ -1,4 +1,9 @@
 { ... }:
+let
+  palette = import ./palette.nix;
+  cava = palette.cava;
+  c = i: builtins.elemAt cava i;
+in
 {
   programs.cava = {
     enable = true;
@@ -8,14 +13,14 @@
         gradient = 1;
         gradient_count = 8;
 
-        gradient_color_1 = "'#fb4934'"; # red
-        gradient_color_2 = "'#fe8019'"; # orange
-        gradient_color_3 = "'#fabd2f'"; # yellow
-        gradient_color_4 = "'#b8bb26'"; # bright green
-        gradient_color_5 = "'#8ec07c'"; # green
-        gradient_color_6 = "'#83a598'"; # blue
-        gradient_color_7 = "'#d3869b'"; # purple
-        gradient_color_8 = "'#ebdbb2'"; # light foreground
+        gradient_color_1 = "'${c 0}'"; # deep green
+        gradient_color_2 = "'${c 1}'";
+        gradient_color_3 = "'${c 2}'";
+        gradient_color_4 = "'${c 3}'";
+        gradient_color_5 = "'${c 4}'";
+        gradient_color_6 = "'${c 5}'";
+        gradient_color_7 = "'${c 6}'";
+        gradient_color_8 = "'${c 7}'"; # bright green
       };
     };
   };

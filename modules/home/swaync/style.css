@@ -1,14 +1,14 @@
 :root {
-    --bg-primary: #1d2021;
-    --bg-secondary: #282828;
-    --bg-button: #4E4E4E;
-    --bg-button-hover: #5E5E5E;
-    --text-primary: #EBDBB2;
-    --text-disabled: #5C554A;
-    --border-color: #928374;
-    --priority-low: #EBDBB2;
-    --priority-normal: #83A598;
-    --priority-critical: #FB4934;
+    --bg-primary: #000000;
+    --bg-secondary: #090E09;
+    --bg-button: #111811;
+    --bg-button-hover: #1A2B1A;
+    --text-primary: #C8E8C8;
+    --text-disabled: #5C665C;
+    --border-color: #243C24;
+    --priority-low: #73AF7B;
+    --priority-normal: #9CEEA8;
+    --priority-critical: #F0716B;
     --transition-standard: 0.15s ease-in-out;
 }
 
@@ -193,7 +193,7 @@ scrollbar slider {
 
 .notification-content .inline-reply .inline-reply-button {
     margin-left: 4px;
-    background: rgb(48, 48, 48);
+    background: var(--bg-button);
     border: 1px solid var(--border-color);
     border-radius: 0px;
     color: var(--text-primary);
@@ -201,7 +201,7 @@ scrollbar slider {
 
 .notification-content .inline-reply .inline-reply-button:disabled {
     background: initial;
-    color: rgb(150, 150, 150);
+    color: var(--text-disabled);
     border: 1px solid var(--border-color);
     border-color: transparent;
 }

@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  palette = import ./palette.nix;
+in
 {
   home.packages = with pkgs; [ rofi ];
 
@@ -16,13 +19,13 @@
 
   xdg.configFile."rofi/theme.rasi".text = ''
     * {
-      background: #000000;
-      background-alt: #111111;
-      foreground: #F5F5F5;
-      foreground-muted: #737373;
-      border-color: #2E2E2E;
-      selected-background: #F5F5F5;
-      selected-foreground: #000000;
+      background: ${palette.bg};
+      background-alt: ${palette.bgAlt};
+      foreground: ${palette.fg};
+      foreground-muted: ${palette.fgDim};
+      border-color: ${palette.border};
+      selected-background: ${palette.fg};
+      selected-foreground: ${palette.bg};
     }
 
     window {

@@ -1,4 +1,7 @@
 { host, ... }:
+let
+  palette = import ../palette.nix;
+in
 {
   programs.hyprlock = {
     enable = true;
@@ -14,7 +17,7 @@
         {
           path = "screenshot";
 
-          color = "rgba(29, 32, 33, 255)";
+          color = "rgba(0, 0, 0, 255)";
           blur_passes = 2;
           vibrancy_darkness = 0.0;
         }
@@ -27,8 +30,8 @@
 
           rounding = 0;
           border_size = 2;
-          color = "rgba(102, 92, 84, 0.33)";
-          border_color = "rgba(168, 153, 132, 0.95)";
+          color = "rgba(17, 24, 17, 0.33)";
+          border_color = "rgba(156, 238, 168, 0.95)";
 
           position = "0, ${if host == "laptop" then "120" else "270"}";
           halign = "center";
@@ -45,7 +48,7 @@
           font_family = "Maple Mono Bold";
 
           shadow_passes = 3;
-          color = "rgba(235, 219, 178, 0.9)";
+          color = "rgba(200, 232, 200, 0.9)";
 
           position = "0, ${if host == "laptop" then "-25" else "-150"}";
           halign = "center";
@@ -53,13 +56,13 @@
         }
         # Date
         {
-          text = ''cmd[update:1000] echo "- $(date +'%A, %B %d') -" '';
+          text = ''cmd[update:1000] echo "- $(date +'%A, %B %d') -"'';
 
           font_size = 18;
           font_family = "Maple Mono";
 
           shadow_passes = 3;
-          color = "rgba(235, 219, 178, 0.9)";
+          color = "rgba(156, 238, 168, 0.9)";
 
           position = "0, ${if host == "laptop" then "-225" else "-350"}";
           halign = "center";
@@ -72,7 +75,7 @@
           font_size = 15;
           font_family = "Maple Mono Bold";
 
-          color = "rgba(235, 219, 178, 1)";
+          color = "rgba(156, 238, 168, 1)";
 
           position = "0, ${if host == "laptop" then "134" else "284"}";
           halign = "center";
@@ -88,19 +91,19 @@
 
           dots_spacing = 0.4;
 
-          font_color = "rgba(235, 219, 178, 0.9)";
+          font_color = "rgba(200, 232, 200, 0.9)";
           font_family = "Maple Mono Bold";
 
-          outer_color = "rgba(168, 153, 132, 0.95)";
-          inner_color = "rgba(102, 92, 84, 0.33)";
-          check_color = "rgba(152, 151, 26, 0.95)";
-          fail_color = "rgba(204, 36, 29, 0.95)";
-          capslock_color = "rgba(215, 153, 33, 0.95)";
-          bothlock_color = "rgba(215, 153, 33, 0.95)";
+          outer_color = "rgba(156, 238, 168, 0.95)";
+          inner_color = "rgba(17, 24, 17, 0.33)";
+          check_color = "rgba(156, 238, 168, 0.95)";
+          fail_color = "rgba(240, 113, 107, 0.95)";
+          capslock_color = "rgba(216, 200, 120, 0.95)";
+          bothlock_color = "rgba(216, 200, 120, 0.95)";
 
           hide_input = false;
           fade_on_empty = false;
-          placeholder_text = ''<i><span foreground="##fbf1c7">Enter Password</span></i>'';
+          placeholder_text = ''<i><span foreground="${palette.fg}">Enter Password</span></i>'';
 
           position = "0, ${if host == "laptop" then "50" else "200"}";
           halign = "center";

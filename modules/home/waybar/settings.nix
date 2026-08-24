@@ -1,20 +1,21 @@
 { host, ... }:
 let
+  palette = import ../palette.nix;
   custom = {
     font = "Maple Mono";
     font_size = "18px";
     font_weight = "bold";
-    text_color = "#F5F5F5";
-    background_0 = "#000000";
-    background_1 = "#111111";
-    border_color = "#F5F5F5";
-    red = "#F5F5F5";
-    green = "#F5F5F5";
-    yellow = "#F5F5F5";
-    blue = "#F5F5F5";
-    magenta = "#F5F5F5";
-    cyan = "#F5F5F5";
-    orange = "#F5F5F5";
+    text_color = palette.fg;
+    background_0 = palette.bg;
+    background_1 = palette.bgAlt;
+    border_color = palette.fg;
+    red = palette.critical;
+    green = palette.fg;
+    yellow = palette.yellow;
+    blue = palette.blue;
+    magenta = palette.magenta;
+    cyan = palette.cyan;
+    orange = palette.orange;
     opacity = "1";
     indicator_height = "2px";
   };
@@ -47,7 +48,7 @@ in
     clock = {
       calendar = {
         format = {
-          today = "<span color='#F5F5F5'><b>{}</b></span>";
+          today = "<span color='#9CEEA8'><b>{}</b></span>";
         };
       };
       format = "  {:%H:%M}";

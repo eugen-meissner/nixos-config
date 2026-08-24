@@ -22,7 +22,7 @@
       gaps_in = 0;
       gaps_out = 0;
       border_size = 2;
-      "col.active_border" = "rgb(98971A) rgb(CC241D) 45deg";
+      "col.active_border" = "rgb(9CEEA8) rgb(486E4E) 45deg";
       "col.inactive_border" = "0x00000000";
       # border_part_of_window = false;
     };

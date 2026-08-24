@@ -27,11 +27,15 @@
       };
 
       url = {
-        "git@github.com:".insteadOf = [
+        "https://github.com/".insteadOf = [
           "gh:"
-          "https://github.com/"
+          "git@github.com:"
         ];
-        "git@github.com:eugen-meissner/".insteadOf = "em:";
+        "git@github.com:eugen-meissner/".insteadOf = [
+          "em:"
+          "git@github.com:eugen-meissner/"
+          "https://github.com/eugen-meissner/"
+        ];
       };
 
       core.excludesFile = "/home/${username}/.config/git/.gitignore";

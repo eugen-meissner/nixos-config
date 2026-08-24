@@ -6,6 +6,7 @@
     linux-wallpaperengine
     mupen64plus
     obs-studio
+    prismlauncher
     rpcs3
     (retroarch.withCores (cores: with cores; [ ppsspp ]))
     teamspeak6-client

@@ -1,4 +1,10 @@
 { host, ... }:
+let
+  palette = import ./palette.nix;
+  ansi = palette.ansi;
+  a = i: builtins.substring 1 6 (builtins.elemAt ansi i);
+  hex = c: builtins.substring 1 6 c;
+in
 {
   programs.foot = {
     enable = true;
@@ -10,26 +16,26 @@
 
       colors = {
         alpha = 0.9;
-        background = "080808";
-        foreground = "ebdbb2";
+        background = hex palette.bg;
+        foreground = hex palette.fgBright;
 
-        regular0 = "282828";
-        regular1 = "cc241d";
-        regular2 = "98971a";
-        regular3 = "d79921";
-        regular4 = "458588";
-        regular5 = "b16286";
-        regular6 = "689d6a";
-        regular7 = "a89984";
+        regular0 = a 0; # black
+        regular1 = a 1; # red
+        regular2 = a 2; # green
+        regular3 = a 3; # yellow
+        regular4 = a 4; # blue
+        regular5 = a 5; # magenta
+        regular6 = a 6; # cyan
+        regular7 = a 7; # white
 
-        bright0 = "928374";
-        bright1 = "fb4934";
-        bright2 = "b8bb26";
-        bright3 = "fabd2f";
-        bright4 = "83a598";
-        bright5 = "d3869b";
-        bright6 = "8ec07c";
-        bright7 = "ebdbb2";
+        bright0 = a 8;
+        bright1 = a 9;
+        bright2 = a 10;
+        bright3 = a 11;
+        bright4 = a 12;
+        bright5 = a 13;
+        bright6 = a 14;
+        bright7 = a 15;
       };
     };
   };

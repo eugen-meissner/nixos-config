@@ -1,85 +1,68 @@
 { ... }:
 let
-  custom = {
-    font = "Maple Mono";
-    font_size = "18px";
-    font_weight = "bold";
-    text_color = "#F5F5F5";
-    background_0 = "#000000";
-    background_1 = "#111111";
-    border_color = "#F5F5F5";
-    red = "#F5F5F5";
-    green = "#F5F5F5";
-    yellow = "#F5F5F5";
-    blue = "#F5F5F5";
-    magenta = "#F5F5F5";
-    cyan = "#F5F5F5";
-    orange = "#F5F5F5";
-    orange_bright = "#F5F5F5";
-    opacity = "1";
-    indicator_height = "2px";
-  };
+  palette = import ../palette.nix;
+  rgba = alpha: "rgba(${palette.fgRgb}, ${alpha})";
 in
 {
-  programs.waybar.style = with custom; ''
+  programs.waybar.style = with palette; ''
     * {
       border: none;
       border-radius: 0px;
       padding: 0;
       margin: 0;
-      font-family: ${font};
-      font-weight: ${font_weight};
-      opacity: ${opacity};
-      font-size: ${font_size};
+      font-family: Maple Mono;
+      font-weight: bold;
+      opacity: 1;
+      font-size: 18px;
     }
 
     window#waybar {
-      background: ${background_0};
-      border-bottom: 1px solid rgba(245, 245, 245, 0.18);
+      background: ${bg};
+      border-bottom: 1px solid ${rgba "0.18"};
     }
 
     tooltip {
-      background: ${background_1};
-      border: 1px solid rgba(245, 245, 245, 0.2);
+      background: ${bgAlt};
+      border: 1px solid ${rgba "0.2"};
     }
     tooltip label {
       margin: 5px;
-      color: ${text_color};
+      color: ${fg};
     }
 
     #workspaces {
       padding-left: 10px;
     }
     #workspaces button {
-      color: rgba(245, 245, 245, 0.45);
+      color: ${rgba "0.45"};
       padding: 0 8px;
       margin-right: 6px;
     }
     #workspaces button.empty {
-      color: rgba(245, 245, 245, 0.3);
+      color: ${rgba "0.3"};
     }
     #workspaces button.active {
-      color: ${text_color};
-      background: ${text_color};
-      color: ${background_0};
+      color: ${fg};
+      background: ${fg};
+      color: ${bg};
     }
     #workspaces button:hover {
-      background: rgba(245, 245, 245, 0.12);
-      color: ${text_color};
+      background: ${rgba "0.12"};
+      color: ${fg};
     }
 
     #clock {
-      color: ${text_color};
+      color: ${fg};
       letter-spacing: 0.08em;
     }
 
     #tray {
       margin-left: 8px;
-      color: ${text_color};
+      color: ${fg};
     }
     #tray menu {
-      background: ${background_1};
-      border: 1px solid ${border_color};
+      background: ${bgAlt};
+      border: 1px solid ${fg};
       padding: 8px;
     }
     #tray menuitem {
@@ -90,7 +73,7 @@ in
       padding-left: 4px;
       padding-right: 4px;
       margin-right: 10px;
-      color: ${text_color};
+      color: ${fg};
     }
 
     #pulseaudio, #custom-blue-light, #language, #custom-notification {
@@ -102,7 +85,7 @@ in
     }
 
     #custom-blue-light.off {
-      color: ${text_color};
+      color: ${fg};
     }
 
     #custom-blue-light {
@@ -118,7 +101,7 @@ in
 
     #custom-launcher {
       font-size: 20px;
-      color: ${text_color};
+      color: ${fg};
       font-weight: bold;
       margin-left: 14px;
       padding-right: 12px;

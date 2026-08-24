@@ -16,8 +16,8 @@
     {
       "type": "title",
       "color": {
-        "user": "35",
-        "host": "36"
+        "user": "10",
+        "host": "2"
       }
     },
     {
@@ -27,59 +27,59 @@
     {
       "type": "os",
       "key": " Distro",
-      "keyColor": "yellow"
+      "keyColor": "green"
     },
     {
       "type": "kernel",
       "key": "  ├─",
-      "keyColor": "yellow"
+      "keyColor": "green"
     },
     {
       "type": "packages",
       "key": "  ├─󰏖",
-      "keyColor": "yellow"
+      "keyColor": "green"
     },
     {
       "type": "shell",
       "key": "  └─",
-      "keyColor": "yellow"
+      "keyColor": "green"
     },
     "break",
     {
       "type": "wm",
       "key": " DE/WM",
-      "keyColor": "blue"
+      "keyColor": "green"
     },
     {
       "type": "theme",
       "key": "  ├─󰉼",
-      "keyColor": "blue"
+      "keyColor": "green"
     },
     {
       "type": "wmtheme",
       "key": "  ├─󰉼",
-      "keyColor": "blue"
+      "keyColor": "green"
     },
     {
       "type": "icons",
       "key": "  ├─󰉋",
-      "keyColor": "blue"
+      "keyColor": "green"
     },
     {
       "type": "cursor",
       "key": "  ├─󰳽",
-      "keyColor": "blue"
+      "keyColor": "green"
     },
     {
       "type": "font",
       "key": "  ├─",
       "format": "{2}",
-      "keyColor": "blue"
+      "keyColor": "green"
     },
     {
       "type": "terminal",
       "key": "  └─",
-      "keyColor": "blue"
+      "keyColor": "green"
     },
     "break",
     {

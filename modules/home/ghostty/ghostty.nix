@@ -1,4 +1,10 @@
 { host, ... }:
+let
+  palette = import ../palette.nix;
+  ansi = palette.ansi;
+  a = i: "${toString i}=${builtins.substring 1 6 (builtins.elemAt ansi i)}";
+  hex = c: builtins.substring 1 6 c;
+in
 {
   programs.ghostty = {
     enable = true;
@@ -18,7 +24,7 @@
       ];
 
       ##### Theme #####
-      theme = "moonfly";
+      theme = "green-dark";
       background-opacity = 0.5;
       adjust-cursor-thickness = 1;
 
@@ -74,34 +80,34 @@
       ];
     };
 
-    themes.moonfly = {
-      background = "080808";
-      foreground = "bdbdbd";
+    themes.green-dark = {
+      background = hex palette.bg;
+      foreground = hex palette.fgBright;
 
-      cursor-color = "9e9e9e";
-      cursor-text = "080808";
+      cursor-color = hex palette.fg;
+      cursor-text = hex palette.bg;
 
-      selection-background = "b2ceee";
-      selection-foreground = "080808";
+      selection-background = hex palette.border;
+      selection-foreground = hex palette.bg;
 
       palette = [
-        "0=323437"
-        "1=ff5454"
-        "2=8cc85f"
-        "3=e3c78a"
-        "4=80a0ff"
-        "5=cf87e8"
-        "6=79dac8"
-        "7=c6c6c6"
+        (a 0)
+        (a 1)
+        (a 2)
+        (a 3)
+        (a 4)
+        (a 5)
+        (a 6)
+        (a 7)
 
-        "8=949494"
-        "9=ff5189"
-        "10=36c692"
-        "11=c6c684"
-        "12=74b2ff"
-        "13=ae81ff"
-        "14=85dc85"
-        "15=e4e4e4"
+        (a 8)
+        (a 9)
+        (a 10)
+        (a 11)
+        (a 12)
+        (a 13)
+        (a 14)
+        (a 15)
       ];
     };
   };

@@ -1,5 +1,5 @@
 # ========== General ========== #
-theme = 'gruvbox-dark-hard'
+theme = 'green-dark'
 editor = "nvim"
 
 auto_check_update = false
