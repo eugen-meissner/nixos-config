@@ -6,7 +6,7 @@
     settings = {
       user = {
         name = "Eugen Meissner";
-        email = "eugen.meissner@enpal.de";
+        email = "meissner.eugen@gmail.com";
       };
 
       init.defaultBranch = "main";
